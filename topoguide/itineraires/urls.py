@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+
+app_name = "itineraires"
 urlpatterns = [
     path('', views.IndexView.as_view(), name="itineraire_list"),
     path('sorties/<int:itineraire_id>/', views.sorties, name = "sorties_list"),
