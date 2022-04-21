@@ -18,7 +18,7 @@
     {% for iti in all_itineraires %}
     <tr>
         <td>
-            {{iti.titre}}
+            <a href="{% url 'itineraires:sorties_list' iti.id %}">{{iti.titre}}</a>
         </td>
         <td>
             {{iti.estimated_difficulty}}
