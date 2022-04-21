@@ -21,7 +21,7 @@
             <a href="{% url 'itineraires:itineraire' iti.id %}">{{iti.titre}}</a>
         </td>
         <td>
-            {{iti.estimated_difficulty}} / 5
+            {{iti.get_estimated_difficulty_display}}
         </td>
         <td>
             {{iti.estimated_duration}} h
