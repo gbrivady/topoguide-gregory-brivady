@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Topoguide - {{sortie.itineraire.titre}}{% endblock %}
+
+{% block content %}
+<h1><a href="{% url 'itineraires:itineraire' sortie.itineraire.id %}">{{sortie.itineraire.titre}}</a> - Sortie de {{sortie.writer.username}}</h1>
+<p>
+    Date : {{sortie.date}} <br>
+    Durée réelle : {{sortie.duration}} h <br>
+    Nombre de participants : {{sortie.number_ppl}} humains <br>
+    Type de randonneurs : {{sortie.get_group_xp_display}} <br>
+    Météo : {{sortie.get_weather_display}} <br>
+    Difficulté ressentie : {{sortie.get_difficulty_display}} <br>
+</p>
+{% endblock content %}

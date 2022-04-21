@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 
-from .models import Itineraire
+from .models import Itineraire, Sortie
 
 class IndexView(LoginRequiredMixin, generic.ListView):
     """
@@ -23,9 +23,12 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "itineraires/itineraire.html"
     model = Itineraire
 
-@login_required
-def sortie(request, sortie_id):
-    return HttpResponse("Détail de la sortie %s" % sortie_id)
+class SortieView(LoginRequiredMixin, generic.DetailView):
+    """
+    View detailled information about a 'Sortie'
+    """
+    template_name = "itineraires/sortie.html"
+    model = Sortie
 
 @login_required
 def nouvelle_sortie(request):
