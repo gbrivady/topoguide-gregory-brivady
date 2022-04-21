@@ -31,11 +31,11 @@ class Sortie(models.Model):
     
     group_xp = models.CharField(
         "Expérience des participants à la sortie", max_length=20,
-        choices=[(0, "Tous débutants"), (1, "Mixte"), (2, "Tous Expérimentés")], 
+        choices=[("NOOB", "Tous débutants"), ("MIX", "Mixte"), ("EXPERIENCED", "Tous Expérimentés")], 
         )
     
     weather = models.CharField("Météo", max_length=8,
-                               choices=[(0, "Bonne"), (1, "Moyenne"), (2, "Mauvaise")])
+                               choices=[("GD", "Bonne"), ("AVG", "Moyenne"), ("BAD", "Mauvaise")])
 
     difficulty = models.PositiveSmallIntegerField(
         "Difficulté ressentie", choices=[(i, "%s/5" %i) for i in range(1, 6)]
