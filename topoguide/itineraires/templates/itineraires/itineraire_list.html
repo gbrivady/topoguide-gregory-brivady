@@ -9,31 +9,10 @@
             Nom
         </th>
         <th>
-            Point de départ 
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Durée estimée
-        </th>
-        <th>
             Difficulté estimée
         </th>
         <th>
-            Altitude de départ
-        </th>
-        <th>
-            Altitude minimale
-        </th>
-        <th>
-            Altitude maximale
-        </th>
-        <th>
-            Dénivelé positif cumulé
-        </th>
-        <th>
-            Dénivelé négatif cumulé 
+            Durée estimée
         </th>
     </tr>
     {% for iti in all_itineraires %}
@@ -42,31 +21,10 @@
             {{iti.titre}}
         </td>
         <td>
-            {{iti.start_point}} 
-        </td>
-        <td>
-            {{iti.description}}
-        </td>
-        <td>
-            {{iti.estimated_duration}} h
-        </td>
-        <td>
             {{iti.estimated_difficulty}}
         </td>
         <td>
-            {{iti.start_altitude}} m
-        </td>
-        <td>
-            {{iti.min_altitude}} m
-        </td>
-        <td>
-            {{iti.max_altitude}} m
-        </td>
-        <td>
-            {{iti.cumulated_slope_up}} m
-        </td>
-        <td>
-            {{iti.cumulated_slope_down}} m
+            {{iti.estimated_duration}} h
         </td>
     </tr>
     {% endfor %}
