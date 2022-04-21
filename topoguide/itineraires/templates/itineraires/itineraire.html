@@ -106,7 +106,9 @@
                     {{sortie.date}}
                 </td>
                 <td>
-                    <button>Consulter</button> <button>Editer</button>
+                    <button onclick="window.location.href=&quot;{% url 'itineraires:sortie' sortie.id %}&quot;;">
+                        Consulter
+                      </button></form><button>Editer</button>
                 </td>
             </tr>
             {% endfor %}
