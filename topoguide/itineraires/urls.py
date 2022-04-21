@@ -6,8 +6,8 @@ from . import views
 app_name = "itineraires"
 urlpatterns = [
     path('', views.IndexView.as_view(), name="itineraire_list"),
-    path('sorties/<int:itineraire_id>/', views.sorties, name = "sorties_list"),
-    
+    path('sorties/<int:pk>/', views.DetailView.as_view(), name = "itineraire"),
+
     path('sortie/<int:sortie_id>', views.sortie, name="sortie_details"),
     path("modif_sortie/<int:sortie_id>/", views.modif_sortie, name="modif_sortie"),
     path("nouvelle_sortie/", views.nouvelle_sortie, name="create_sortie"),

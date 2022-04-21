@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Topoguide - {{itineraire.titre}}{% endblock title %}
+
+{% block content %}
+
+<h1>{{itineraire.titre}}</h1>
+<br>
+    {{itineraire.description}}
+<br>
+<table>
+    <tr>
+        <td>
+            <b>Point de départ</b>
+        </td>
+        <td>
+            {{itineraire.start_point}}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Altitude de départ</b>
+        </td>
+        <td>
+            {{itineraire.start_altitude}} m
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Altitude minimale</b>
+        </td>
+        <td>
+            {{itineraire.min_altitude}} m
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Altitude maximale</b>
+        </td>
+        <td>
+            {{itineraire.max_altitude}} m
+        </td>
+    </tr>
+
+    <tr>    
+        <td>
+            <b>Dénivelé positif cumulé</b>
+        </td>
+        <td>
+            {{itineraire.cumulated_slope_up}} m
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Dénivelé négatif cumulé</b>
+        </td>
+        <td>
+            {{itineraire.cumulated_slope_down}} m
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Durée estimée</b>
+        </td>
+        <td>
+            {{itineraire.estimated_duration}} h
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Difficulté estimée</b>
+        </td>
+        <td>
+            {{itineraire.estimated_difficulty}} / 5
+        </td>
+    </tr>
+    <tr>
+
+
+    </table>
+
+{% endblock content %}

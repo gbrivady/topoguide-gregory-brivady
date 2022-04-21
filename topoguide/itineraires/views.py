@@ -15,11 +15,13 @@ class IndexView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         # Return all the itineraires, ordered by title
         return Itineraire.objects.order_by("titre")
-    
 
-@login_required
-def sorties(request, itineraire_id):
-    return HttpResponse("Liste des sorties de l'itinéraire %s" % itineraire_id)
+class DetailView(LoginRequiredMixin, generic.DetailView):
+    """
+    View all the informations of an Itineraire , and all the Sorties posted by users.
+    """
+    template_name = "itineraires/itineraire.html"
+    model = Itineraire
 
 @login_required
 def sortie(request, sortie_id):
