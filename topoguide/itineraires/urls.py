@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.itineraire, name="itineraire_list"),
+    path('', views.IndexView.as_view(), name="itineraire_list"),
     path('sorties/<int:itineraire_id>/', views.sorties, name = "sorties_list"),
     
     path('sortie/<int:sortie_id>', views.sortie, name="sortie_details"),
