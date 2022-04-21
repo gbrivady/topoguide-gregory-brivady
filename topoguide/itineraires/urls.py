@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 
@@ -11,5 +10,5 @@ urlpatterns = [
     path('sortie/<int:pk>', views.SortieView.as_view(), name="sortie"),
     
     path("modif_sortie/<int:sortie_id>/", views.modif_sortie, name="modif_sortie"),
-    path("nouvelle_sortie/", views.nouvelle_sortie, name="create_sortie"),
+    path("nouvelle_sortie/", views.NewSortie.as_view(), name="nouvelle_sortie"),
 ]
