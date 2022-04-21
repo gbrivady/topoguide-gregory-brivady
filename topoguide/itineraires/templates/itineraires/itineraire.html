@@ -5,9 +5,8 @@
 {% block content %}
 
 <h1>{{itineraire.titre}}</h1>
-<br>
     {{itineraire.description}}
-<br>
+<p>
 <table>
     <tr>
         <td>
@@ -81,8 +80,40 @@
         </td>
     </tr>
     <tr>
-
-
     </table>
+</p>
+    {% with itineraire.sortie_set.all as sorties_list %}
+    {% if sorties_list %}
+        <table>
+            <tr>
+                <th>
+                    Par
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    
+                </th>
+            </tr>
+            {% for sortie in sorties_list %}
+            <tr>
+                <td>
+                    {% comment %} <a href="{% url 'itineraires:sortie_details' sortie.id %}"></a> {% endcomment %}
+                    {{sortie.writer.username}}
+                </td>
+                <td>
+                    {{sortie.date}}
+                </td>
+                <td>
+                    <button>Consulter</button> <button>Editer</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
 
+    {% else %}
+        <p>Aucune sortie n'a été renseignée.</p>
+    {% endif %}
+    {% endwith %}
 {% endblock content %}
