@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}{% endblock title %}
+{% block title %}Topoguide - Nouvelle sortie{% endblock title %}
 
 {% block content %}
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <input class="button-1" type="submit" value="Sauvegarder">
 </form>
 {% endblock content %}
