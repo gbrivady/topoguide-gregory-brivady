@@ -5,7 +5,9 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <a href="/accounts/logout">Logout</a>   
+    <button onclick="window.location.href='/accounts/logout';">
+        Logout
+      </button> 
     {% block content %}
     {% endblock %}
 </body>
