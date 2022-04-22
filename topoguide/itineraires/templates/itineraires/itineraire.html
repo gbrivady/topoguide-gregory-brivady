@@ -99,7 +99,6 @@
             {% for sortie in sorties_list %}
             <tr>
                 <td>
-                    {% comment %} <a href="{% url 'itineraires:sortie_details' sortie.id %}"></a> {% endcomment %}
                     {{sortie.writer.username}}
                 </td>
                 <td>
@@ -108,8 +107,8 @@
                 <td>
                     <button onclick="window.location.href=&quot;{% url 'itineraires:sortie' sortie.id %}&quot;;">
                         Consulter
-                      </button></form><button>Editer</button>
-                </td>
+                      </button>
+                      <button>Editer</button>
             </tr>
             {% endfor %}
         </table>
