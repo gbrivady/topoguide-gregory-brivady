@@ -105,11 +105,11 @@
                     {{sortie.date}}
                 </td>
                 <td>
-                    <button onclick="window.location.href=&quot;{% url 'itineraires:sortie' sortie.id %}&quot;;">
+                    <button class="button-2" onclick="window.location.href=&quot;{% url 'itineraires:sortie' sortie.id %}&quot;;">
                         Consulter
                       </button>
                       {% if user == sortie.writer %}
-                      <button onclick="window.location.href=&quot;{% url 'itineraires:modif_sortie' sortie.id %}&quot;;">Editer</button>
+                      <button class="button-3" onclick="window.location.href=&quot;{% url 'itineraires:modif_sortie' sortie.id %}&quot;;">Editer</button>
                       {% endif %}
             </tr>
             {% endfor %}
@@ -120,6 +120,6 @@
     {% endif %}
     {% endwith %}
     <form action="{% url 'itineraires:nouvelle_sortie' %}" method="get">
-        <button name="i" value="{{itineraire.id}}"> Nouvelle sortie</button>
+        <button class="button-2" name="i" value="{{itineraire.id}}"> Nouvelle sortie</button>
     </form>
 {% endblock content %}
