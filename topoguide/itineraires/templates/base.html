@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <style>    
+    .button-1 {
+      background-color: lightpink;
+      border-radius: 8px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      height: 40px;
+      line-height: 20px;
+      margin: 0;
+      padding: 10px 16px;
+      text-align: center;
+    }
+    
+    .button-1:hover,
+    .button-1:focus {
+      background-color: pink;
+    }
+</style>
 </head>
+
 <body>
-    <button onclick="window.location.href='/accounts/logout';">
-        Logout
-      </button> 
+
+<h1>TOPOGUIDE
+<button class="button-1" onclick="window.location.href=&quot;{% url 'itineraires:itineraire_list' %}&quot;;">Accueil </button>
+<button class="button-1" onclick="window.location.href='/accounts/logout';">Logout</button>
+</h1>
     {% block content %}
     {% endblock %}
 </body>
