@@ -108,7 +108,7 @@
                     <button onclick="window.location.href=&quot;{% url 'itineraires:sortie' sortie.id %}&quot;;">
                         Consulter
                       </button>
-                      <button>Editer</button>
+                      {% if user == sortie.writer %}<button>Editer</button>{% endif %}
             </tr>
             {% endfor %}
         </table>
