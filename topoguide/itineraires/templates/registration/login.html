@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Login to Topoguide</title>
+    <style>
+        .button-1 {
+            background-color: lightpink;
+            border-radius: 8px;
+            border-style: none;
+            padding: 10px 16px;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+          }
+          
+          .button-1:hover, .button-1:focus {
+            background-color: pink;
+          }
+    </style>
 </head>
 <body>
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="login">
+        <input class="button-1" type="submit" value="Login">
         <input type="hidden" name="next" value="{{ next }}">
     </form>
 </body>
