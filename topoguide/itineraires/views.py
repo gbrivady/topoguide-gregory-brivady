@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseForbidden
 from django.views import generic
 
 from .models import Itineraire, Sortie
@@ -41,4 +42,8 @@ class EditSortie(LoginRequiredMixin, generic.edit.UpdateView):
     template_name = "itineraires/sortie_edit.html"
     model = Sortie
     fields = ['date', 'duration', 'number_ppl', 'group_xp', 'weather', 'difficulty']
-    
+    def form_valid(self, form):
+        if(self.request.user == form.instance.writer):
+            return super().form_valid(form)
+        else:
+            return HttpResponseForbidden("Vous n'avez pas le droit de modifier une sortie dont vous n'êtes pas l'auteur.")
