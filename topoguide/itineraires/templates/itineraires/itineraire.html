@@ -118,4 +118,7 @@
         <p>Aucune sortie n'a été renseignée.</p>
     {% endif %}
     {% endwith %}
+    <form action="{% url 'itineraires:nouvelle_sortie' %}" method="get">
+        <button name="i" value="{{itineraire.id}}"> Nouvelle sortie</button>
+    </form>
 {% endblock content %}
