@@ -1,8 +1,3 @@
-from dataclasses import fields
-from re import template
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 
@@ -33,7 +28,7 @@ class SortieView(LoginRequiredMixin, generic.DetailView):
     model = Sortie
 
 class NewSortie(LoginRequiredMixin, generic.edit.CreateView):
-    template_name = "itineraires/sortie_create.html"
+    template_name = "itineraires/sortie_edit.html"
     model = Sortie
     fields = ['date', 'duration', 'number_ppl', 'group_xp', 'weather', 'difficulty']
     
@@ -42,6 +37,8 @@ class NewSortie(LoginRequiredMixin, generic.edit.CreateView):
         form.instance.itineraire = Itineraire.objects.get(id=self.request.GET.get("i"))
         return super().form_valid(form)
 
-@login_required
-def modif_sortie(request, sortie_id):
-    return HttpResponse("Page de modification de la sortie %s" % sortie_id)
+class EditSortie(LoginRequiredMixin, generic.edit.UpdateView):
+    template_name = "itineraires/sortie_edit.html"
+    model = Sortie
+    fields = ['date', 'duration', 'number_ppl', 'group_xp', 'weather', 'difficulty']
+    
