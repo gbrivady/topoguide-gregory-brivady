@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 class Itineraire(models.Model):
     """
@@ -40,3 +41,5 @@ class Sortie(models.Model):
     difficulty = models.PositiveSmallIntegerField(
         "Difficulté ressentie", choices=[(i, "%s/5" %i) for i in range(1, 6)]
         )
+    def get_absolute_url(self):
+        return reverse('itineraires:sortie', kwargs={'pk': self.pk})
